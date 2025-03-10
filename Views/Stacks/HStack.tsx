@@ -1,6 +1,7 @@
 import React from "react"
 import RectangleViewModifiers from "../BaseTypes/RectangleViewModifiers"
 import { HorizontalAlignment, VerticalAlignment } from "../ModifierTypes/Alignment"
+import { renderChildrenHStack } from "../Utils/RenderChildren"
 
 interface HStackModifiers extends RectangleViewModifiers {
     spacing?: number
@@ -34,10 +35,6 @@ const HStack = (modifiers: HStackModifiers) => {
             default:
                 return "center"
         }
-    }   
-
-    function renderChildren(children: string | number | bigint | boolean | import("react").ReactElement<unknown, string | import("react").JSXElementConstructor<any>> | Iterable<import("react").ReactNode> | import("react").ReactPortal | Promise<string | number | bigint | boolean | import("react").ReactPortal | import("react").ReactElement<unknown, string | import("react").JSXElementConstructor<any>> | Iterable<import("react").ReactNode> | null | undefined> | null | undefined): import("react").ReactNode {
-        throw new Error("Function not implemented.")
     }
 
     return (
@@ -52,7 +49,9 @@ const HStack = (modifiers: HStackModifiers) => {
             backgroundColor: modifiers.backgroundColor ?? "clear",
             borderRadius: modifiers.cornerRadius ?? 20
         }}>
-            {renderChildren(modifiers.children)}
+            {renderChildrenHStack(modifiers.children)}
         </div>
     )
 }
+
+export default HStack

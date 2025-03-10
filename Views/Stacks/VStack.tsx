@@ -1,6 +1,7 @@
 import React from "react"
 import { HorizontalAlignment, VerticalAlignment } from "../ModifierTypes/Alignment"
 import RectangleViewModifiers from "../BaseTypes/RectangleViewModifiers"
+import { renderChildrenVStack } from "../Utils/RenderChildren"
 
 interface VStackModifiers extends RectangleViewModifiers {
     spacing?: number
@@ -36,10 +37,6 @@ const VStack = (modifiers: VStackModifiers) => {
         }
     }
 
-    function renderChildren(children: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined): React.ReactNode {
-        throw new Error("Function not implemented.")
-    }
-
     return (
         <div style={{
             display: "flex",
@@ -52,7 +49,9 @@ const VStack = (modifiers: VStackModifiers) => {
             backgroundColor: modifiers.backgroundColor ?? "clear",
             borderRadius: modifiers.cornerRadius ?? 20
         }}>
-            {renderChildren(modifiers.children)}
+            {renderChildrenVStack(modifiers.children)}
         </div>
     )
 }
+
+export default VStack

@@ -19,3 +19,5 @@ const ZStack = (modifiers: ZStackModifiers) => {
         </div>
     )
 }
+
+export default ZStack
