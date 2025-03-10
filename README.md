@@ -1,23 +1,50 @@
-# React Observable Object Hook
+# React Observable Object Hook & SwiftUI-Style Views
 
-This repository is a work in progress, with the aim of building a new framework to mirror SwiftUI's architecture and state management.
-
-Currently, it contains a single JavaScript file that demonstrates how to mirror SwiftUI's data structure and reactivity model within a React application. The primary focus is to provide React developers with a way to manage state using a pattern similar to SwiftUI's `ObservableObject`, enhancing the consistency and ease of state management in complex React applications.
+This repository provides React components and hooks that mirror SwiftUI's architecture, state management, and view system.
 
 ## Overview
 
-The `ObservableObject` pattern in SwiftUI allows developers to create a source of truth for a view in a declarative style, which can be observed by the UI components for automatic updates. This repository adapts that concept to React using hooks, effectively marrying React's reactive capabilities with the intuitive and developer-friendly approach of SwiftUI.
+This project consists of two main parts:
 
-The provided implementation uses a combination of React's `useState` and `useCallback` hooks to create a similar observable object mechanism. This allows React components to automatically re-render when the observable object's state changes, mimicking SwiftUI's behavior.
+1. **Observable Object Pattern**: An implementation similar to SwiftUI's `ObservableObject` for state management in React
+2. **SwiftUI-Style Views**: A collection of view components that mirror SwiftUI's declarative UI building blocks
 
-## File Description
+### State Management
 
-- `ObservableObject.js`: Implements the `NewObservableObject` function that developers can use to create stateful logic similar to SwiftUI's observable objects in React. It allows for defining state variables and setters in a centralized object, providing a cleaner and more organized way to handle component state.
+The `ObservableObject` pattern allows developers to create a source of truth for views in a declarative style, which can be observed by UI components for automatic updates. The implementation uses React's `useState` and `useCallback` hooks to create a similar observable object mechanism.
+
+### View Components
+
+The library includes several SwiftUI-inspired view components:
+
+- **Stack Views**:
+  - `VStack`: Vertical stack layout
+  - `HStack`: Horizontal stack layout
+  - `ZStack`: Overlay stack layout (components stacked on top of each other)
+
+- **Basic Views**:
+  - `Rectangle`: Basic rectangular view
+  - `RoundedRectangle`: Rectangle with rounded corners
+
+All view components support common modifiers for:
+- Width and height
+- Background color
+- Corner radius
+- Alignment (for stack views)
+- Spacing (for stack views)
+
+## File Structure
+
+- `ObservableObject.js`: Implements the state management system
+- `Views/`
+  - `Stacks/`: Contains VStack, HStack, and ZStack components
+  - `Rectangles.tsx`: Basic shape components
+  - `BaseTypes/`: Common types and interfaces
+  - `ModifierTypes/`: View modifier definitions
 
 ## Usage
 
-To use the ObservableObject in your React project, import the `NewObservableObject` function from `ObservableObject.js` and use it to create state objects. You will need to have TypeScript enabled for your project.
-
+### State Management
 ```javascript
 import { NewObservableObject } from './ObservableObject';
 
@@ -37,3 +64,23 @@ const App = () => {
     </div>
   );
 };
+```
+
+### View Components
+```typescript
+import { VStack, Rectangle, RoundedRectangle } from './Views';
+
+const MyView = () => {
+  return (
+    <VStack spacing={10} horizontalAlignment={HorizontalAlignment.CENTER}>
+      <Rectangle width={100} height={100} backgroundColor="blue" />
+      <RoundedRectangle 
+        width={200} 
+        height={50} 
+        backgroundColor="red" 
+        cornerRadius={10} 
+      />
+    </VStack>
+  );
+};
+```

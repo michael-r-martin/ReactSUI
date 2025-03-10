@@ -1,0 +1,17 @@
+{
+  "name": "reactsui",
+  "version": "1.0.0",
+  "description": "This repository is a work in progress, with the aim of building a new framework to mirror SwiftUI's architecture and state management.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.10"
+  }
+}
