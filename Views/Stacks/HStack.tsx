@@ -1,5 +1,5 @@
 import React from "react"
-import RectangleViewModifiers from "../BaseTypes/RectangleViewModifiers"
+import RectangleViewModifiers from "../BaseTypes/BaseViewModifiers"
 import { HorizontalAlignment, VerticalAlignment } from "../ModifierTypes/Alignment"
 import { renderChildrenHStack } from "../Utils/RenderChildren"
 
@@ -47,7 +47,7 @@ const HStack = (modifiers: HStackModifiers) => {
             width: modifiers.width ?? 0,
             height: modifiers.height ?? 0,
             backgroundColor: modifiers.backgroundColor ?? "clear",
-            borderRadius: modifiers.cornerRadius ?? 20
+            borderRadius: modifiers.cornerRadius ?? 0
         }}>
             {renderChildrenHStack(modifiers.children)}
         </div>

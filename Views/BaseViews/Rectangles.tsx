@@ -1,5 +1,5 @@
 import React from "react";
-import RectangleViewModifiers from "./BaseTypes/RectangleViewModifiers";
+import RectangleViewModifiers from "../BaseTypes/BaseViewModifiers";
 
 const Rectangle = (modifiers: RectangleViewModifiers) => {
     return (
