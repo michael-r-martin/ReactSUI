@@ -1,6 +1,6 @@
 import React from "react"
 import { HorizontalAlignment, VerticalAlignment } from "../ModifierTypes/Alignment"
-import RectangleViewModifiers from "../BaseTypes/RectangleViewModifiers"
+import RectangleViewModifiers from "../BaseTypes/BaseViewModifiers"
 import { renderChildrenVStack } from "../Utils/RenderChildren"
 
 interface VStackModifiers extends RectangleViewModifiers {
